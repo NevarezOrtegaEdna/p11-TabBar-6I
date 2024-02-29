@@ -21,6 +21,7 @@ samples, guidance on mobile development, and a full API reference.
 ## Ejemplo TabBar: FlutLab - Flutter Online IDE
 
 - Links de Referencia [https://flutlan.io/docs](https://codesinsider.com/flutter-tabbar-tabbarview-example-tutorial/?expand_article=1)
+- Edna Nevarez Ortega a.21308051280395@cbtis128.edu.mx
 
 ## Resultado de mi Aplicacion
 
