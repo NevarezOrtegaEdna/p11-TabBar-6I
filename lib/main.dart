@@ -1,43 +1,94 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(AppMiTabBar());
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-  // This widget is the root of your application.
+class AppMiTabBar extends StatefulWidget {
+  const AppMiTabBar({Key? key}) : super(key: key);
+
+  @override
+  State<AppMiTabBar> createState() => _AppMiTabBarState();
+}
+
+class _AppMiTabBarState extends State<AppMiTabBar> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // Application name
-      title: 'Flutter Hello World',
-      // Application theme data, you can set the colors for the application as
-      // you want
+      debugShowCheckedModeBanner: false,
+      title: "Ejemplo TabBar Edna Nevarez",
       theme: ThemeData(
-        // useMaterial3: true,
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.red,
       ),
-      // A widget which will be started on application startup
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MiPaginaInicial(),
     );
   }
 }
+//Stateful
 
-class MyHomePage extends StatelessWidget {
-  final String title;
-  const MyHomePage({super.key, required this.title});  
+class MiPaginaInicial extends StatefulWidget {
+  const MiPaginaInicial({Key? key}) : super(key: key);
 
   @override
+  State<MiPaginaInicial> createState() => _MiPaginaInicialState();
+} //MiPaginaInicial
+
+class _MiPaginaInicialState extends State<MiPaginaInicial> {
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        // The title text which will be shown on the action bar
-        title: Text(title),
-      ),
-      body: Center(
-        child: Text(
-          'Hello, World!',
-        ),
-      ),
-    );
-  }
-}
+    return DefaultTabController(
+        length: 4,
+        child: Scaffold(
+          //DefaultTabController
+          appBar: AppBar(
+            title: const Text("TabBar Edna Nevarez"),
+            centerTitle: true,
+            bottom: TabBar(
+              tabs: [
+                Tab(
+                  text: "Casas",
+                  icon: Icon(Icons.cottage_rounded),
+                ),
+                Tab(
+                  text: "Ofertas",
+                  icon: Icon(Icons.currency_exchange_rounded),
+                ),
+                Tab(
+                  text: "Favoritos",
+                  icon: Icon(Icons.favorite_rounded),
+                ),
+                Tab(
+                  text: "Cuentas",
+                  icon: Icon(Icons.account_circle_rounded),
+                ),
+              ], //Fin de tabs
+            ), //Fin buttom tabBar
+          ),
+          body: TabBarView(children: const <Widget>[
+            Center(
+              child: Text(
+                "Casas",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40),
+              ),
+            ),
+            Center(
+              child: Text(
+                "Ofertas",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40),
+              ),
+            ),
+            Center(
+              child: Text(
+                "Favoritos",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40),
+              ),
+            ),
+            Center(
+              child: Text(
+                "Cuentas",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40),
+              ),
+            ),
+          ] //Jardin de niños
+              ), //Fin tabBarView
+        ));
+  } //fin widget
+} //_MiPaginaInicialState
